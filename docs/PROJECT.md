@@ -16,24 +16,24 @@ Commit berkas ini dalam PR `feature/kerangka` yang sama dengan artefak Sesi 2.
 
 **A1 · Domain.** Aplikasi ini untuk siapa, mengurus apa. Satu kalimat.
 
-> `<contoh: Aplikasi pencatatan kunjungan pasien untuk klinik kecil.>`
+> Aplikasi manajemen katalog menu dan pencatatan pesanan untuk kafe.
 
 **A2 · Alur inti.** Siapa melakukan apa, lalu melihat apa. Satu kalimat. Inilah yang akan kamu
 demokan selama 90 detik di Sesi 15.
 
-> `<contoh: Petugas login, mencatat satu kunjungan pasien, lalu melihat grafik kunjungan per bulan.>`
+> Kasir login, menambahkan data menu baru, lalu melihat grafik total penjualan per kategori menu.
 
 **A3 · Entitas induk.** Nama tabel + 4–6 kolom.
 
-> `<contoh: pasien — id, nama, tanggal_lahir, no_telepon, dibuat_pada>`
+> menu — id, nama, sku, kategori, harga, dibuat_pada
 
 **A4 · Entitas anak.** Nama tabel + 4–6 kolom, termasuk foreign key ke induk.
 
-> `<contoh: kunjungan — id, pasien_id (FK), tanggal, keluhan, biaya>`
+> pesanan — id, menu_id, jumlah, total_harga, dibuat_pada
 
 **A5 · Satu angka yang digambar grafik.** Angka agregat, bukan daftar.
 
-> `<contoh: jumlah kunjungan per bulan, 12 bulan terakhir>`
+> total pesanan per kategori menu, 30 hari terakhir
 
 ### Pembagian slice (diisi malam ini juga)
 
