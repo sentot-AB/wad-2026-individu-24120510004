@@ -16,6 +16,52 @@ pemeriksa nilai.
 
 ---
 
+## 📌 Tugas Individu: Sesi 03 Implementasi Endpoint FastAPI
+
+- **Topik Terpilih:** **T4 | Menu**
+- **NIM:** `24120510004`
+- **Branch:** `feature/endpoint-individu`
+
+### Spesifikasi Endpoint & Validasi
+
+1. **Skema Input & Validasi:**
+   - `nama`: `str` (Nama menu)
+   - `sku`: `str` (Format regex wajib: `KOPI-000`, contoh `KOPI-001`, `KOPI-123`)
+   - `kategori`: `str` (Pilihan terbatas: `kopi`, `non-kopi`, atau `makanan`)
+   - *Catatan:* Input tidak menyertakan `id`. Jika format `sku` atau `kategori` tidak sesuai, mengembalikan status **422 Unprocessable Entity**.
+
+2. **Skema Output:**
+   - Menyertakan atribut input ditambah `id` (`int`) yang di-generate otomatis oleh server (*Skema Input != Skema Output*).
+
+3. **Daftar Endpoint:**
+   - `POST /api/menu`
+     - Status: **201 Created**
+     - Header: `Location: /api/menu/{id}`
+     - Body Request: JSON sesuai `MenuCreate`
+   - `GET /api/menu`
+     - Status: **200 OK**
+     - Query parameters:
+       - `?skip=0` (offset data)
+       - `?limit=10` (maksimal data)
+       - `?search=<kata_kunci>` (filter nama menu case-insensitive)
+   - `GET /api/menu/{id}`
+     - Status: **200 OK** jika ditemukan
+     - Status: **404 Not Found** jika ID tidak ditemukan (`{"detail": "Menu tidak ditemukan"}`)
+
+### Cara Menjalankan & Menguji Endpoint Menu
+
+```bash
+# 1. Pindah ke direktori backend dan jalankan server
+cd backend
+uvicorn app.main:app --reload
+
+# 2. Akses Dokumentasi Interaktif (Swagger UI)
+http://localhost:8000/docs
+```
+
+
+---
+
 ## 0. Membuat repo kelompok (sekali saja, di Sesi 2)
 
 Ini **administratif**, bukan tugas — sama seperti membawa laptop. Dikerjakan **ketua kelompok**,
